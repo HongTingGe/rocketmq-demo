@@ -7,9 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class PayProducer {
 
-    private String producerGroup = "pay_group";
+    private String producerGroup = "pay_producer_group";
 
-    private String nameServerAddr = "47.107.153.235:9876";
 
     private DefaultMQProducer producer;
 
@@ -19,7 +18,7 @@ public class PayProducer {
 
         //指定NameServerAddr地址,多个地址以;隔开
         //eg. producer.setNamesrvAddr("xx.xxx.xxx.xxx:xxxx;xx.xxx.xxx.xxx:xxxx");
-        producer.setNamesrvAddr(nameServerAddr);
+        producer.setNamesrvAddr(JmsConfig.NAME_SERVER);
         start();
     }
 
